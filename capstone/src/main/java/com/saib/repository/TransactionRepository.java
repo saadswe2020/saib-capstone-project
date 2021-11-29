@@ -13,6 +13,7 @@ import com.saib.models.Transaction;
 public interface TransactionRepository extends JpaRepository<Transaction,Long> {
 	
 	List<Transaction> findByTransactionType(String transactionType);  
-	List<Transaction> findAllByDate(LocalDateTime date); 
+	List<Transaction> findByDate(LocalDateTime date); 
+	List<Transaction> findTransactionByDateAndTransactionType(LocalDateTime date, String transactionType); 
 	
 }

@@ -36,7 +36,6 @@ public class Transaction {
 	@Column(name="amount")
 	private double amount;
 	
-//	@Temporal (TemporalType.DATE)
 	@Column(name="date")
 	private LocalDateTime date;
 	
