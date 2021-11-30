@@ -56,12 +56,18 @@ public class TransactionService {
 	public List<Transaction> getAllTransactionsByDate(LocalDateTime date)
 	{
 		List<Transaction> list=transactionRepository.findByDate(date);
+		if(list.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Transaction with the passed date do not exist.");
+		}
 		return list;
 	}
 	
 	public List<Transaction> getAllTransactionsByDateAndType(LocalDateTime date, String transactionType)
 	{
 		List<Transaction> list=transactionRepository.findTransactionByDateAndTransactionType(date,transactionType);
+		if(list.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Transaction with the passed date or type do not exist.");
+		}
 		return list;
 	}
 
